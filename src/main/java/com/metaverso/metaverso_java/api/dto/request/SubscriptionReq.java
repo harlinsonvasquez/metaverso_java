@@ -30,6 +30,4 @@ public class SubscriptionReq {
     @NotBlank(message = "fecha de finalizacion requerida")
     private LocalDate endDate;
 
-    //video 10 minuto 57:47  https://www.youtube.com/watch?v=6tQ2HW4ljr4
-    //esto es un comentario
 }

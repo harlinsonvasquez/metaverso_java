@@ -34,8 +34,12 @@ public class Product {
     private String image;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany(mappedBy = "products",fetch = FetchType.EAGER)
-    private List<Subscription> subscriptions;
+   @OneToMany(
+           fetch = FetchType.EAGER,
+           mappedBy = "product",
+           orphanRemoval = true
+   )
+   private List<ProductSubscription> productSubscriptions;
 
 
 }

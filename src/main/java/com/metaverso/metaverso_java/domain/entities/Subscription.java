@@ -37,12 +37,10 @@ public class Subscription {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "subscription_product",
-            joinColumns = @JoinColumn(name = "subscription_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "subscription"
     )
-    private List<Product> products;
+    private List<ProductSubscription> productSubscriptions;
 
 }
