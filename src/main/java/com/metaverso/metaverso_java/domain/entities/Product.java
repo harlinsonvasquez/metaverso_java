@@ -7,35 +7,35 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name="product")
+@Entity(name = "product")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 100,nullable = false)
+
+    @Column(length = 100, nullable = false)
     private String name;
     @Lob
+    @Column(nullable = false)
     private String description;
     @Enumerated(EnumType.STRING)
     private Category category;
+
     @Column(nullable = false)
     private BigDecimal price;
     @Column(nullable = false)
     private String link;
     @Column(nullable = false)
     private String image;
-
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "product",
-            cascade = CascadeType.ALL,
-            orphanRemoval = false
-    )
-    private List<SuscriptionProduct> suscriptionProductList;
+    @ManyToMany(mappedBy = "products",fetch = FetchType.EAGER)
+    private List<Subscription> subscriptions;
+
+
 }

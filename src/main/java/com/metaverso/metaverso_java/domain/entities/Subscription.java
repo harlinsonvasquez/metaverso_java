@@ -7,36 +7,42 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity(name = "suscription")
-@Builder
+@Entity(name = "subscription")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Suscription {
+public class Subscription {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(length = 100, nullable = false)
     private String name;
+
     @Lob
     @Column(nullable = false)
     private String description;
+
     @Column(nullable = false)
     private BigDecimal price;
+
     @Column(nullable = false)
-    private LocalDate starDate;
+    private LocalDate startDate;
+
     @Column(nullable = false)
     private LocalDate endDate;
 
+
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "suscription",
-            cascade = CascadeType.ALL,
-            orphanRemoval = false
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "subscription_product",
+            joinColumns = @JoinColumn(name = "subscription_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<SuscriptionProduct> suscriptionProducts;
+    private List<Product> products;
 
 }
