@@ -11,10 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchaseResp {
+public class PurchaseBasicResp {
     private Long id;
     private String city;
     private LocalDateTime purchaseDay;
-    private UserBasicResp users;
-    private ProductBasicResp productBasicResp;
 }

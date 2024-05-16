@@ -33,4 +33,8 @@ public class Purchase {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "User_id",referencedColumnName = "id")
     private User users;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "Product_id",referencedColumnName = "id")
+    private Product product;
 }

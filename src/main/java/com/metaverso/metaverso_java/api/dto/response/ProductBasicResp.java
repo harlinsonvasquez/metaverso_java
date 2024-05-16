@@ -1,23 +1,22 @@
 package com.metaverso.metaverso_java.api.dto.response;
 
-
-import java.util.List;
-
+import com.metaverso.metaverso_java.utils.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResp {
+public class ProductBasicResp {
     private Long id;
     private String name;
-    private String lastName;
-    private String email;
-    private String city;
-    private SubscriptionBasicResp subscriptionBasicResp;
-    private List<PurchaseBasicResp>purchaseBasicResps; 
+    private String description;
+    private Category category;
+    private BigDecimal price;
+    private String link;
+    private String image;
 }
