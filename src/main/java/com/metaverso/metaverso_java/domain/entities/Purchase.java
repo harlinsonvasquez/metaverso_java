@@ -31,8 +31,8 @@ public class Purchase {
     private LocalDateTime purchaseDay;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "User_id",referencedColumnName = "id")
-    private User users;
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private User user;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "Product_id",referencedColumnName = "id")

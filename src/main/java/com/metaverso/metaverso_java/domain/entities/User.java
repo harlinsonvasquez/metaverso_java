@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity (name = "users")
+@Entity (name = "user")
 @Data
 @Builder
 @AllArgsConstructor
@@ -41,13 +41,13 @@ public class User {
     @EqualsAndHashCode.Exclude
     @OneToMany(
         fetch = FetchType.EAGER,
-        mappedBy = "users",
+        mappedBy = "user",
         cascade = CascadeType.ALL,
         orphanRemoval = false
     )    
     private List<Purchase> purchases;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "Suscription_id",referencedColumnName = "id")
+    @JoinColumn(name = "suscription_id",referencedColumnName = "id")
     private Subscription subscription;
 }
