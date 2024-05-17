@@ -22,7 +22,6 @@ public class ProductResp {
     private BigDecimal price;
     private String link;
     private String image;
-    private List<PurchaseBasicResp>purchaseBaicResps;
     private List<SubscriptionBasicResp>subscriptions;
 
 

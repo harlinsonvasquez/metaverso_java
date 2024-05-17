@@ -10,6 +10,7 @@ import java.io.Serializable;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
+//serializable clse especial para responder por http
 public class BaseErrorRespo  implements Serializable {
     private String status;
     private Integer code;
