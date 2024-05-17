@@ -19,5 +19,5 @@ public class UserResp {
     private String email;
     private String city;
     private  SubscriptionBasicResp subscriptionBasicResp;
-    private List<PurchaseBasicResp>purchaseBasicResps;
+    private List<PurchaseBasicResp>purchaseBasicResps;  
 }
