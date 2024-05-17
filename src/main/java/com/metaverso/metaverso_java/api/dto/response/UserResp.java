@@ -18,6 +18,6 @@ public class UserResp {
     private String lastName;
     private String email;
     private String city;
-    private SubscriptionBasicResp subscriptionBasicResp;
-    private List<PurchaseBasicResp>purchaseBasicResps; 
+    private  SubscriptionBasicResp subscriptionBasicResp;
+    private List<PurchaseBasicResp>purchaseBasicResps;
 }
