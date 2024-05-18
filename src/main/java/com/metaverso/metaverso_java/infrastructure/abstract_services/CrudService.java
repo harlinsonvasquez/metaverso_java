@@ -9,5 +9,5 @@ public interface CrudService <RQ,RS,ID>{
     public RS update(RQ request, ID id);
     public void delete(ID id);
     public Page<RS>getAll(int page,int size, SortType sort);
-    //QUEDAMOS EL VIDEO 11
+
 }
