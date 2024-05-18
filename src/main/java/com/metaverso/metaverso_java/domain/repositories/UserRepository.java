@@ -9,6 +9,6 @@ import com.metaverso.metaverso_java.domain.entities.User;
 
 public interface UserRepository  extends JpaRepository<User, Long>{
 
-    @Query(value = "select u from user u where u.email between : min and :max")
-    public List<User> selectBetweenEmail(String min, String max);
+    /*@Query(value = "select u from user u where u.email between : min and :max")
+    public List<User> selectBetweenEmail(String min, String max);*/
 }
