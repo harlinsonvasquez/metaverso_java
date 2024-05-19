@@ -1,7 +1,7 @@
 package com.metaverso.metaverso_java.api.dto.response;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,11 +12,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubscriptionBasicResp {
+public class UserResp {
     private Long id;
     private String name;
-    private String description;
-    private BigDecimal price;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String lastName;
+    private String email;
+    private String city;
+    private  SubscriptionBasicResp subscriptionBasicResp;
+    private List<PurchaseBasicResp>purchaseBasicResps;
 }

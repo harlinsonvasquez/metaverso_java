@@ -1,7 +1,8 @@
 package com.metaverso.metaverso_java.api.dto.request;
 
-import com.metaverso.metaverso_java.utils.enums.Category;
+import com.metaverso.metaverso_java.utils.enums.CategoryProduct;
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,12 +25,9 @@ public class ProductReq {
     @NotBlank(message = "la descripcion del producto es requerido")
     private String description;
 
-    @NotBlank(message = "la categoria del producto es requerido")
-    @Size(message = "el nombre debe tener entre 1 y 100 caracteres")
-    private Category category;
+    @NotNull(message = "la categoria del producto es requerido")
+    private CategoryProduct categoryProduct;
 
-
-    @NotBlank(message = "el precio debe ser mayor a cero")
     @DecimalMin(value = "0.01",message = "el valor debe ser mayor a cero")
     private BigDecimal price;
 
