@@ -6,6 +6,7 @@ import com.metaverso.metaverso_java.domain.entities.Product;
 import com.metaverso.metaverso_java.domain.repositories.ProductRepository;
 import com.metaverso.metaverso_java.infrastructure.abstract_services.IProductService;
 import com.metaverso.metaverso_java.utils.enums.SortType;
+import com.metaverso.metaverso_java.utils.exceptions.BadRequestException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +23,43 @@ public class ProductService implements IProductService {
     private final ProductRepository productRepository;
     @Override
     public ProductResp create(ProductReq request) {
-        return null;
+        Product product=this.requestToEntity(request);
+
+        return this.entityToResp(this.productRepository.save(product));
+    }
+    private Product requestToEntity(ProductReq request){
+        return Product.builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .categoryProduct(request.getCategoryProduct())
+                .price(request.getPrice())
+                .image(request.getImage())
+                .link(request.getLink())
+                .build();
     }
 
     @Override
-    public ProductResp get(Long aLong) {
-        return null;
+    public ProductResp get(Long id) {
+        return this.entityToResp(this.find(id));
     }
 
     @Override
-    public ProductResp update(ProductReq request, Long aLong) {
-        return null;
+    public ProductResp update(ProductReq request, Long id) {
+        Product product=this.find(id);
+        product.setName(request.getName());
+        product.setDescription(request.getDescription());
+        product.setCategoryProduct(request.getCategoryProduct());
+        product.setPrice(request.getPrice());
+        product.setLink(request.getLink());
+        product.setImage(request.getImage());
+
+        return this.entityToResp(this.productRepository.save(product));
     }
 
     @Override
-    public void delete(Long aLong) {
+    public void delete(Long id) {
+        Product product=this.find(id);
+        this.productRepository.delete(product);
 
     }
 
@@ -57,14 +80,9 @@ public class ProductService implements IProductService {
         BeanUtils.copyProperties(entity,response);
         return response;
 
-        /*return ProductResp.builder()
-                .id(entity.getId())
-                .name(entity.getName())
-                .description(entity.getDescription())
-                .category(entity.getCategory())
-                .price(entity.getPrice())
-                .link(entity.getLink())
-                .image(entity.getImage())
-                .build();*/
+    }
+
+    private Product find(Long id){
+        return this.productRepository.findById(id).orElseThrow(()-> new BadRequestException("no hay registros del id suministrado"));
     }
 }

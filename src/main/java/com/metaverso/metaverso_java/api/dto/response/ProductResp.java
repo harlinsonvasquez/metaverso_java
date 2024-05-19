@@ -22,7 +22,7 @@ public class ProductResp {
     private BigDecimal price;
     private String link;
     private String image;
-    private List<SubscriptionBasicResp> subscriptions;
+    //private List<SubscriptionBasicResp> subscriptions;
 
 
 }

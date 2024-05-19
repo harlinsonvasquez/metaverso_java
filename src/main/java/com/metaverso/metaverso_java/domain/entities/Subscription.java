@@ -42,7 +42,9 @@ public class Subscription {
     @EqualsAndHashCode.Exclude
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "subscription"
+            mappedBy = "subscription",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<ProductSubscription> productSubscriptions;
 
