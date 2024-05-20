@@ -20,6 +20,6 @@ public class SubscriptionResponse {
     private BigDecimal price;
     private LocalDate startDate;
     private LocalDate endDate;
-    private List<UserBasicResp> userBasicResps;
+
     private List<ProductBasicResp> productResps;
 }

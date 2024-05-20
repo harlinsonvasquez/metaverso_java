@@ -1,6 +1,6 @@
 package com.metaverso.metaverso_java.domain.entities;
 
-import com.metaverso.metaverso_java.utils.enums.Category;
+import com.metaverso.metaverso_java.utils.enums.CategoryProduct;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +24,7 @@ public class Product {
     @Column(nullable = false)
     private String description;
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private CategoryProduct categoryProduct;
 
     @Column(nullable = false)
     private BigDecimal price;

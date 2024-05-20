@@ -10,6 +10,7 @@ import com.metaverso.metaverso_java.domain.entities.Purchase;
 @Repository
 public interface PurchaseRepository extends JpaRepository<Purchase,Long>{
     
-    // @Query (value = "select p from purchase p join fetch p. user p wherw p.id=:idUser")
-    Optional<Purchase> findByPurchaseByUserById (Long idUser);
+    //@Query (value = "select p from purchase p join fetch p. user p wherw p.id=:idUser")
+    Optional<Purchase> findByPurchaseId (Long idUser);
+
 }

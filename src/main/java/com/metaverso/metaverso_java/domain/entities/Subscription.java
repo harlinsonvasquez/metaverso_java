@@ -1,5 +1,6 @@
 package com.metaverso.metaverso_java.domain.entities;
 
+import com.metaverso.metaverso_java.utils.enums.CategorySubscription;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,6 +34,8 @@ public class Subscription {
 
     @Column(nullable = false)
     private LocalDate endDate;
+    @Enumerated(EnumType.STRING)
+    private CategorySubscription category;
 
 
     @ToString.Exclude
