@@ -37,6 +37,7 @@ public class Product {
    @OneToMany(
            fetch = FetchType.EAGER,
            mappedBy = "product",
+           cascade = CascadeType.ALL,
            orphanRemoval = true
    )
    private List<ProductSubscription> productSubscriptions;

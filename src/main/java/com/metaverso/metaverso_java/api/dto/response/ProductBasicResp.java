@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Set;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -19,4 +21,5 @@ public class ProductBasicResp {
     private BigDecimal price;
     private String link;
     private String image;
+    private Set<SubscriptionBasicResp> subscriptions;
 }

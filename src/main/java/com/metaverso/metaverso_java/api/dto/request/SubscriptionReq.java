@@ -1,7 +1,9 @@
 package com.metaverso.metaverso_java.api.dto.request;
 
+import com.metaverso.metaverso_java.utils.enums.CategorySubscription;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,12 +24,14 @@ public class SubscriptionReq {
     private String name;
     @NotBlank(message = "descripcion requerida")
     private String description;
-    @NotBlank(message = "precio requerido")
+    @NotNull(message = "precio requerido")
     @DecimalMin(value = "0.01",message = "el valor debe ser mayor a cero")
     private BigDecimal price;
-    @NotBlank(message = "fecha de inicio requerida")
+    @NotNull(message = "fecha de inicio requerida")
     private LocalDate startDate;
-    @NotBlank(message = "fecha de finalizacion requerida")
+    @NotNull(message = "fecha de finalizacion requerida")
     private LocalDate endDate;
+    @NotNull
+    private CategorySubscription category;
 
 }
