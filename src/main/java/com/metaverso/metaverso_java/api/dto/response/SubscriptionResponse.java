@@ -1,5 +1,6 @@
 package com.metaverso.metaverso_java.api.dto.response;
 
+import com.metaverso.metaverso_java.utils.enums.CategorySubscription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class SubscriptionResponse {
     private BigDecimal price;
     private LocalDate startDate;
     private LocalDate endDate;
+    private CategorySubscription category;
     private List<ProductBasicResp> products;
 }

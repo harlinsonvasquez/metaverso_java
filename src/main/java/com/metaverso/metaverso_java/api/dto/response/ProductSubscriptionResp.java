@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductSubscriptionResp {
     private Long id;
-    private ProductResp products;
+    private ProductBasicResp products;
     private SubscriptionBasicResp subscriptions;
 }
