@@ -2,7 +2,6 @@ package com.metaverso.metaverso_java.api.dto.request;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +29,7 @@ public class SubscriptionReq {
     private LocalDate startDate;
     @NotBlank(message = "fecha de finalizacion requerida")
     private LocalDate endDate;
-    @NotNull
-    private Long productId;
+
+    //video 10 minuto 57:47  https://www.youtube.com/watch?v=6tQ2HW4ljr4
+    //esto es un comentario
 }

@@ -1,6 +1,6 @@
 package com.metaverso.metaverso_java.domain.entities;
 
-import com.metaverso.metaverso_java.utils.enums.CategoryProduct;
+import com.metaverso.metaverso_java.utils.enums.Category;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +24,7 @@ public class Product {
     @Column(nullable = false)
     private String description;
     @Enumerated(EnumType.STRING)
-    private CategoryProduct categoryProduct;
+    private Category category;
 
     @Column(nullable = false)
     private BigDecimal price;
@@ -34,13 +34,8 @@ public class Product {
     private String image;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-   @OneToMany(
-           fetch = FetchType.EAGER,
-           mappedBy = "product",
-           cascade = CascadeType.ALL,
-           orphanRemoval = true
-   )
-   private List<ProductSubscription> productSubscriptions;
+    @ManyToMany(mappedBy = "products",fetch = FetchType.EAGER)
+    private List<Subscription> subscriptions;
 
 
 }

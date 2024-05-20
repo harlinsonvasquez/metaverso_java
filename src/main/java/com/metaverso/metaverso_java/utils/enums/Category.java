@@ -1,7 +1,5 @@
 package com.metaverso.metaverso_java.utils.enums;
 
-public enum SortType {
-    NONE,
-    ASC,
-    DESC
+public enum Category {
+    UNO,DOS,TRES
 }

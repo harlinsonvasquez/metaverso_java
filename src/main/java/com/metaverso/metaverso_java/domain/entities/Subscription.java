@@ -1,6 +1,5 @@
 package com.metaverso.metaverso_java.domain.entities;
 
-import com.metaverso.metaverso_java.utils.enums.CategorySubscription;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,18 +33,16 @@ public class Subscription {
 
     @Column(nullable = false)
     private LocalDate endDate;
-    @Enumerated(EnumType.STRING)
-    private CategorySubscription category;
 
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "subscription",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "subscription_product",
+            joinColumns = @JoinColumn(name = "subscription_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<ProductSubscription> productSubscriptions;
+    private List<Product> products;
 
 }

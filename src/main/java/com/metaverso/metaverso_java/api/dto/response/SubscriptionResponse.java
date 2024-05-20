@@ -20,5 +20,5 @@ public class SubscriptionResponse {
     private BigDecimal price;
     private LocalDate startDate;
     private LocalDate endDate;
-    private List<ProductBasicResp> products;
+    private List<ProductBasicResp> productResps;
 }

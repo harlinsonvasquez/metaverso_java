@@ -1,6 +1,6 @@
 package com.metaverso.metaverso_java.api.dto.response;
 
-import com.metaverso.metaverso_java.utils.enums.CategoryProduct;
+import com.metaverso.metaverso_java.utils.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class ProductBasicResp {
     private Long id;
     private String name;
     private String description;
-    private CategoryProduct categoryProduct;
+    private Category category;
     private BigDecimal price;
     private String link;
     private String image;
