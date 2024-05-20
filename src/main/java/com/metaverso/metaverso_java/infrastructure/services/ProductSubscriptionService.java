@@ -2,6 +2,7 @@ package com.metaverso.metaverso_java.infrastructure.services;
 
 import com.metaverso.metaverso_java.api.dto.request.ProductSubscriptionReq;
 import com.metaverso.metaverso_java.api.dto.response.ProductBasicResp;
+import com.metaverso.metaverso_java.api.dto.response.ProductResp;
 import com.metaverso.metaverso_java.api.dto.response.ProductSubscriptionResp;
 import com.metaverso.metaverso_java.api.dto.response.SubscriptionBasicResp;
 import com.metaverso.metaverso_java.domain.entities.Product;
@@ -65,9 +66,9 @@ public class ProductSubscriptionService  implements IProductSubscriptionService 
         ProductSubscriptionResp response = new ProductSubscriptionResp();
         response.setId(entity.getId());
 
-        ProductBasicResp productBasicResp = new ProductBasicResp();
-        BeanUtils.copyProperties(entity.getProduct(), productBasicResp);
-        response.setProducts(productBasicResp);
+        ProductResp productResp = new ProductResp();
+        BeanUtils.copyProperties(entity.getProduct(), productResp);
+        response.setProducts(productResp);
 
         SubscriptionBasicResp subscriptionBasicResp = new SubscriptionBasicResp();
         BeanUtils.copyProperties(entity.getSubscription(), subscriptionBasicResp);
