@@ -1,7 +1,9 @@
 package com.metaverso.metaverso_java.infrastructure.services;
 
 import com.metaverso.metaverso_java.api.dto.request.ProductReq;
+import com.metaverso.metaverso_java.api.dto.response.ProductBasicResp;
 import com.metaverso.metaverso_java.api.dto.response.ProductResp;
+import com.metaverso.metaverso_java.api.dto.response.SubscriptionBasicResp;
 import com.metaverso.metaverso_java.domain.entities.Product;
 import com.metaverso.metaverso_java.domain.repositories.ProductRepository;
 import com.metaverso.metaverso_java.infrastructure.abstract_services.IProductService;
@@ -14,6 +16,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -83,6 +89,25 @@ public class ProductService implements IProductService {
     }
 
     private Product find(Long id){
-        return this.productRepository.findById(id).orElseThrow(()-> new BadRequestException("no hay registros del id suministrado"));
+        return this.productRepository.findById(id)
+                .orElseThrow(()-> new BadRequestException("no hay registros del id suministrado"));
+    }
+    public ProductBasicResp getProductWithSubscriptions(Long id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new BadRequestException("Product not found"));
+
+        ProductBasicResp response = new ProductBasicResp();
+        BeanUtils.copyProperties(product, response);
+
+        Set<SubscriptionBasicResp> subscriptions = product.getProductSubscriptions().stream()
+                .map(ps -> {
+                    SubscriptionBasicResp subscriptionResp = new SubscriptionBasicResp();
+                    BeanUtils.copyProperties(ps.getSubscription(), subscriptionResp);
+                    return subscriptionResp;
+                })
+                .collect(Collectors.toSet());
+
+        response.setSubscriptions(subscriptions);
+        return response;
     }
 }

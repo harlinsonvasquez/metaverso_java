@@ -1,6 +1,7 @@
 package com.metaverso.metaverso_java.api.controllers;
 
 import com.metaverso.metaverso_java.api.dto.request.ProductReq;
+import com.metaverso.metaverso_java.api.dto.response.ProductBasicResp;
 import com.metaverso.metaverso_java.api.dto.response.ProductResp;
 import com.metaverso.metaverso_java.infrastructure.abstract_services.IProductService;
 import com.metaverso.metaverso_java.utils.enums.SortType;
@@ -38,9 +39,13 @@ public class ProductController {
             ){
         return ResponseEntity.ok(this.ProductService.create(request));
     }
-    @GetMapping(path = "/{id}")
+    /*@GetMapping(path = "/{id}")
     public ResponseEntity<ProductResp>get(@PathVariable Long id){
         return ResponseEntity.ok(this.ProductService.get(id));
+    }*/
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductBasicResp> getProductWithSubscriptions(@PathVariable Long id) {
+        return ResponseEntity.ok(ProductService.getProductWithSubscriptions(id));
     }
     @PutMapping(path = "/{id}")
     public ResponseEntity<ProductResp>update(@Validated @RequestBody
@@ -55,3 +60,5 @@ public class ProductController {
     }
 
 }
+//quedamos en la la solucion de consultar un producto y que traiga las subscripciones en las que esta asociadad y no repetidas
+//queda ok
