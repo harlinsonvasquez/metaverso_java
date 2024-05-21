@@ -16,6 +16,6 @@ public class PurchaseResp {
     private Long id;
     private String city;
     private LocalDateTime purchaseDay;
-    private List<ProductBasicResp> productBasicResp;
+    private List<ProductResp> productBasicResp;
     private UserBasicResp userBasicResp;
 }

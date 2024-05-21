@@ -15,6 +15,9 @@ public class UserReq {
     @NotBlank(message = "El nombre es requerido")
     @Size(min = 0, max = 100)
     private String name;
+    @NotBlank(message = "El apellido es requerido")
+    @Size(min = 0, max = 100)
+    private String lastName;
     @NotBlank(message = "El email es requerido")
     private String email;
     @NotBlank(message = "La ciudadrequerida")
@@ -22,4 +25,6 @@ public class UserReq {
     @NotBlank(message = "La contraseña es requerida")
     @Size(min = 0, max = 100)   
     private String password;
+    private Long subscriptionId;
+
 }

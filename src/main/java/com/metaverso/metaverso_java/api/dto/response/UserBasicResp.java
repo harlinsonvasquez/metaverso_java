@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -16,4 +19,6 @@ public class UserBasicResp {
     private String lastName;
     private String email;
     private String city;
+    private  SubscriptionBasicResp subscription;
+    private List<PurchaseBasicResp> purchases;
 }
