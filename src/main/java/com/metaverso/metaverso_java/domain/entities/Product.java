@@ -42,5 +42,8 @@ public class Product {
    )
    private List<ProductSubscription> productSubscriptions;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PurchaseProduct> purchaseProducts;
+
 
 }

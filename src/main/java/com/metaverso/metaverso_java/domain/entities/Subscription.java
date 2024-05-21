@@ -48,4 +48,7 @@ public class Subscription {
     )
     private List<ProductSubscription> productSubscriptions;
 
+    @OneToMany(mappedBy = "subscription")
+    private List<User> users;
+
 }

@@ -1,6 +1,7 @@
 package com.metaverso.metaverso_java.domain.entities;
 
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,8 +33,11 @@ public class User {
     @Column (length = 100, nullable = false)
     private String name;
     @Column (length = 100, nullable = false)
+    @NotBlank(message = "el apellido es requerido")
     private String lastName;
+    @NotBlank(message = "el email es obligatorio")
     private String email;
+    @NotBlank(message = "la ciudad es requerida")
     private String city;
     @Column (length = 100, nullable = false)
     private String password;
@@ -40,14 +45,14 @@ public class User {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(
-        fetch = FetchType.EAGER,
+        fetch = FetchType.LAZY,
         mappedBy = "user",
         cascade = CascadeType.ALL,
-        orphanRemoval = false
+        orphanRemoval = true
     )    
-    private List<Purchase> purchases;
+    private Set<Purchase> purchases;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "suscription_id",referencedColumnName = "id")
+    @JoinColumn(name = "subscription_id",referencedColumnName = "id")
     private Subscription subscription;
 }

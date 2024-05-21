@@ -10,6 +10,12 @@ import com.metaverso.metaverso_java.domain.entities.User;
 
 public interface UserRepository  extends JpaRepository<User, Long>{
 
-        @Query("SELECT u FROM User u WHERE u.name = :name")
-    List<User> findByName(@Param("name") String name);
+    @Query("SELECT u FROM user u " +
+            "LEFT JOIN FETCH u.subscription " +
+            "LEFT JOIN FETCH u.purchases p " +
+            "LEFT JOIN FETCH p.purchaseProducts pp " +
+            "LEFT JOIN FETCH pp.product " +
+            "WHERE u.id = :id")
+    User findUserWithPurchasesAndProducts(@Param("id") Long id);
+
 }
