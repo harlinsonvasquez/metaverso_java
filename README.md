@@ -7,7 +7,7 @@ metaversi sera una api donde los usuarios podran ver espacios creados con los da
 
 Caracteristicas
 
-*Autenticacion de usuarios: Gestiona el acceso de un usuario a traves de un sistema robusto de autenticaacion
+ * Autenticacion de usuarios: Gestiona el acceso de un usuario a traves de un sistema robusto de autenticaacion
 
 *Validacion de datos:Nos aseguramos de dar la mejor experiencia validando correctamente los datos a traves del token
 
