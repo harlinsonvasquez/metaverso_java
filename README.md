@@ -13,6 +13,11 @@ Caracteristicas
 
  * Gestion de roles: Controlamos el acceso dependiendo del rol de cada usuario dandole a admin mayor libertad al momento de tener la oportunidad de eliminar a un usuario si es necesario (Admin, User)
 
- * Personalizacion de avatars En metaverso contaremos con una personalizacion de avatars para que el usuario pueda modificar su propio persona a su propio gusto
+ * Personalizacion de avatars: En metaverso contaremos con una personalizacion de avatars para que el usuario pueda modificar su propio persona a su propio gusto
 
- 
+
+ TECNOLOGIAS UTILIZADAS
+
+ * Nest.js: Un framework progresivo de Node.js para construir aplicaciones de servidor eficientes.
+ * Spring boot: Un framework referente a java con el que podremas trabajar la creacion de crud y las peticiones HTTP que se le pediran y se le guardaran al usuario.
+ * Wordbench: Wordbench sera nuestra base de datos preferencial donde se guardaran todos los datos requeridos y donde se pediran los @Querry cuando queramos buscar alguna de nuestras entidades
