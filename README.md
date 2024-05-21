@@ -21,3 +21,8 @@ Caracteristicas
  * Nest.js: Un framework progresivo de Node.js para construir aplicaciones de servidor eficientes.
  * Spring boot: Un framework referente a java con el que podremas trabajar la creacion de crud y las peticiones HTTP que se le pediran y se le guardaran al usuario.
  * Wordbench: Wordbench sera nuestra base de datos preferencial donde se guardaran todos los datos requeridos y donde se pediran los @Querry cuando queramos buscar alguna de nuestras entidades
+
+   DEPENDENCIAS.
+   
+    *SPRING WEB: Nos da soporte para el desarrollo de aplicaciones y páginas webs basadas en Java.
+    *SPRING BOOT DEVTOOLS: Nos ayudan con el desarrollo rápido al proporcionar características que ahorran             tiempo y reducen la necesidad de intervención manual. 
