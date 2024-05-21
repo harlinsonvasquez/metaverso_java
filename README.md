@@ -25,4 +25,7 @@ Caracteristicas
    DEPENDENCIAS.
    
     *SPRING WEB: Nos da soporte para el desarrollo de aplicaciones y páginas webs basadas en Java.
-    *SPRING BOOT DEVTOOLS: Nos ayudan con el desarrollo rápido al proporcionar características que ahorran             tiempo y reducen la necesidad de intervención manual. 
+    *SPRING BOOT DEVTOOLS: Nos ayudan con el desarrollo rápido al proporcionar características que ahorran             tiempo y reducen la necesidad de intervención manual.
+    *SPRING DATA JPA: simplifica al desarrollador la persistencia de datos contra distintos repositorios de información.
+   LOMBOK: Lombok es una biblioteca para java que nos ayuda a acortar nuestro tiempo de codigo ayudandonos a traer los getter y setter en lugar de tener que escribirlos a mano.
+    *MYSQL DRIVER: Esta dependencia nos ayuda a conectarnos con nuestra base de datos los cual es donde se guadaran nuestras entidades y haremos las peticiones del @Querry.
